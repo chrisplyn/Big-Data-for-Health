@@ -1,0 +1,44 @@
+body {
+	background-color: rgb(48, 48, 48);
+	color: rgb(220, 220, 220);
+}
+
+.upload_title {
+	margin-left: 35%;
+	margin-top: 10%;
+	margin-bottom: 25px;
+}
+
+.upload_form {
+	margin-left: 35%;
+	margin-top: 15px;
+}
+
+input[type=text] {
+    padding:5px; 
+    border:2px solid #ccc; 
+}
+
+.image_input {
+    padding:5px; 
+}
+
+.submit_button {
+    padding:5px 15px; 
+    background:#ccc; 
+    border:0 none;
+    cursor:pointer;
+    margin-top: 50px;
+}
+
+.detail_card {
+/*	border:2px solid #ccc; 
+*/}
+
+.back_home_link {
+	color: rgb(220, 220, 220);
+}
+
+.show_list_link {
+	color: rgb(220, 220, 220);
+}

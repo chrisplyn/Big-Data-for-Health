@@ -1,0 +1,16 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+   <meta charset="UTF-8"> 
+	<title>Chest X-ray Disease Diagnosis</title> 
+   {% load static %}
+   <link rel="stylesheet" type="text/css" href="{% static 'peach/style.css' %}">
+</head> 
+<body>
+   <div class = "back_home">
+      <a class = "back_home_link" href = "{% url 'peach:upload' %}">Back to Home</a>
+   </div>
+   {% include 'peach/cardView.html' %}
+</body> 
+</html> 
+

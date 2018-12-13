@@ -1,0 +1,30 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head>
+	<meta charset="UTF-8"> 
+	<title>Chest X-ray Disease Diagnosis</title>
+   {% load static %}
+   <link rel="stylesheet" type="text/css" href="{% static 'peach/style.css' %}">
+</head> 
+<body>
+   <div class = "show_list">
+      <a class = "show_list_link" href = "{% url 'peach:list' %}">Show Diagnosis List</a>
+   </div>
+   
+   <h2 class="upload_title">Chest X-ray Disease Diagnosis</h2>
+	<form class="upload_form" method = "post" enctype="multipart/form-data" action="{% url 'peach:upload' %}"> 
+		{% csrf_token %}
+		<div class="upload_title_section">
+            <label>Enter the title of X-ray image:</label>
+            <input type = "text" placeholder = "title" name = "title"/>
+      </div>
+      <br/>
+		<div class="upload_image_section">
+            <label>Choose the X-ray image:</label>
+            <input class = "image_input" type = "file" name = "image" />
+      </div>
+         <button class= "submit_button" type="submit">Submit</button> 
+	</form> 
+</body> 
+</html> 
+

@@ -1,0 +1,15 @@
+{% load static %}
+<div class = "detail_card">
+   <h2>{{event.title_text}}</h2>
+   <div>
+      {% block content %}
+         <img src ="{{event.xray_image.url}}" width = "224" height = "224"></img>
+      {% endblock %}
+      <h3>The five most likely diseases</h3>
+      <ul>
+      {% for name, prediction in event.get_pre_result %} 
+         <li>{{name}} ---> {{prediction}} %</li>
+      {% endfor %}
+      </ul>
+   </div>
+</div>

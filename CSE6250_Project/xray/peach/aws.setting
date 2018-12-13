@@ -1,0 +1,42 @@
+python manage.py collectstatic
+gunicorn --bind 0.0.0.0:8000 health.wsgi:application
+
+
+[Unit]
+Description=gunicorn daemon
+After=network.target
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/CSE6250_Project/xray
+ExecStart=/home/ubuntu/CSE6250_Project/xray/my_env/bin/gunicorn --workers 3 --bind unix:/home/ubuntu/CSE6250_Project/xray/health.sock health.wsgi:application
+[Install]
+WantedBy=multi-user.target
+
+sudo vim /etc/nginx/sites-available/health
+
+server {
+  listen 80;
+  server_name 54.165.195.160;
+  location /static/ {
+      root /home/ubuntu/CSE6250_Project/xray;
+  }
+  location / {
+      include proxy_params;
+      proxy_pass http://unix:/home/ubuntu/CSE6250_Project/xray/health.sock;
+  }
+}
+
+sudo rm /etc/nginx/sites-enabled/health
+sudo ln -s /etc/nginx/sites-available/health /etc/nginx/sites-enabled
+sudo nginx -t
+sudo rm /etc/nginx/sites-enabled/default
+sudo service nginx restart
+
+
+sudo apt-get install nginx git
+gunicorn --bind 0.0.0.0:8000 health.wsgi:application
+
+sudo apt-get install nginx git
+
+git clone https://github.gatech.edu/kyahui3/CSE6250_Project.git

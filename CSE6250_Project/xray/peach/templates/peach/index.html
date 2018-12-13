@@ -1,0 +1,21 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+   <meta charset="UTF-8"> 
+   <title>Chest X-ray Disease Diagnosis</title> 
+   {% load static %}
+   <link rel="stylesheet" type="text/css" href="{% static 'peach/style.css' %}">
+</head> 
+<body>
+   <div class = "back_home">
+      <a class = "back_home_link" href = "{% url 'peach:upload' %}">Back to Home</a>
+   </div>
+   {% if events %}
+   {%for event in events %}
+      {% include 'peach/cardView.html' %}
+   {% endfor %}
+   {% else %}
+      <p> No predictions events are available.</p>
+   {% endif %}
+</body> 
+</html> 
